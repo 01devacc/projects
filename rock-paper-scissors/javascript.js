@@ -1,8 +1,9 @@
 let humanScore = 0;
 let computerScore = 0;
+let counter = 0;
 
-let humanSelection = getHumanChoice();
-let computerSelection = getComputerChoice(3);
+let humanSelection;
+let computerSelection;
 
 function getComputerChoice(number) {
     let choice = getRandomInt(number);
@@ -63,7 +64,34 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
+function logScore() {
+    console.log(`Human: ${humanScore}, Computer: ${computerScore}`);
+}
 
 
-playRound(humanSelection, computerSelection);
-console.log(`Human: ${humanScore}, Computer: ${computerScore}`);
+function reassignSelections() {
+    humanSelection = getHumanChoice();
+    computerSelection = getComputerChoice(3);
+}
+
+
+function playGame(counter) {
+    if (counter < 5) {
+        reassignSelections();
+        playRound(humanSelection, computerSelection);
+        logScore();
+        counter += 1;
+        playGame(counter);
+    } else {
+        if (humanScore > computerScore) {
+            console.log("You win the game!");
+        } else if (computerScore > humanScore) {
+            console.log("You lose the game!");
+        } else {
+            console.log("The games ends with a tie!")
+        }
+    }
+}
+
+playGame(counter);
+
