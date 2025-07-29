@@ -1,6 +1,5 @@
 let humanScore = 0;
 let computerScore = 0;
-let counter = 0;
 
 let humanSelection;
 let computerSelection;
@@ -73,25 +72,3 @@ function reassignSelections() {
     humanSelection = getHumanChoice();
     computerSelection = getComputerChoice(3);
 }
-
-
-function playGame(counter) {
-    if (counter < 5) {
-        reassignSelections();
-        playRound(humanSelection, computerSelection);
-        logScore();
-        counter += 1;
-        playGame(counter);
-    } else {
-        if (humanScore > computerScore) {
-            console.log("You win the game!");
-        } else if (computerScore > humanScore) {
-            console.log("You lose the game!");
-        } else {
-            console.log("The games ends with a tie!")
-        }
-    }
-}
-
-playGame(counter);
-
