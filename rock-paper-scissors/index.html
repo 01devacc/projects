@@ -3,9 +3,44 @@
     <head>
         <meta charset = "UTF-8">
         <meta title = "Rock Paper Scissors">
-        <script src="javascript.js"></script>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+            }
+
+            .buttons {
+                display: flex;
+                justify-content: space-around;
+                width: 80%;
+                max-width: 1000px;
+                margin: auto;
+            }
+
+            button {
+                padding: 30px 60px;
+                font-size: large;
+                border-radius: 15px;
+                background-color: lightblue;
+            }
+
+        </style>
+        <script src="javascript.js" defer></script>
     </head>
     <body>
-
+        <div class="buttons">
+            <button>Rock</button>
+            <button>Paper</button>
+            <button>Scissors</button>
+        </div>
+       
     </body>
 </html>
