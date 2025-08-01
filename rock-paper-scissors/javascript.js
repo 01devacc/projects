@@ -3,8 +3,7 @@ let computerScore = 0;
 
 let humanSelection;
 let computerSelection;
-let round = 0;
-let maxRounds = 5;
+
 let gameEnded = false;
 
 let buttons = document.querySelectorAll('button')
@@ -30,7 +29,7 @@ buttons.forEach(button => {
             return;
         }
 
-        if (round >= maxRounds) {
+        if (humanScore === 5 || computerScore === 5) {
 
             gameEnded = true;
             return;
@@ -40,9 +39,9 @@ buttons.forEach(button => {
         computerSelection = getComputerChoice(3);
         playRound(humanSelection, computerSelection);
         score.innerText = `Score -- You: ${humanScore}, Computer: ${computerScore}`
-        round ++;
+        
 
-        if (round === maxRounds) {
+        if (humanScore === 5 || computerScore === 5) {
             score.innerText = `Final score -- You: ${humanScore}, Computer: ${computerScore}`
             
             if (humanScore > computerScore) {
@@ -94,8 +93,3 @@ function playRound(humanChoice, computerChoice) {
         text.textContent = 'Select an option.';
     }
 }
-
-// function logScore() {
-//     console.log(`Human: ${humanScore}, Computer: ${computerScore}`);
-// }
-
